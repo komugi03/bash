@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+#
+# テストファイルを実行するスクリプト
+#
+
+# スクリプトのあるディレクトリを取得
+SCRIPT_PATH="$( cd "$(dirname "$0")" >/dev/null 2>&1 || exit 1 ; pwd -P )"
+
+# テストファイルのあるディレクトリを設定
+TEST_PATH="${SCRIPT_PATH}/test"
+
+# bats コマンドを PATH に登録
+PATH="${PATH}:${SCRIPT_PATH}/lib/bats-core/bin"
+
+
+# 横棒を描画する
+print_bar() {
+    printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+}
+
+# テストファイル名を表示して bats でテストを実行する
+exec_testfile() {
+    local -r testfile=$1
+    local -r relative_path=$(realpath --relative-to="${TEST_PATH}" "${testfile}")
+
+    print_bar     
+    echo ">> ${relative_path}"
+    echo
+    bats --pretty "${testfile}"
+}
+
+# テストディレクトリ内にあるすべてのテストファイル（*.bats）を列挙する
+list_testfiles() {
+    find "${TEST_PATH}" -type f -name '*.bats'
+}
+
+# 全テストを実行する
+exec_all_tests() {
+    list_testfiles | while IFS= read -r testfile; do
+        exec_testfile "${testfile}"
+    done
+}
+
+# 主処理
+main() {
+    exec_all_tests
+}
+
+main

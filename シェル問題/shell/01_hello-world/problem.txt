@@ -1,0 +1,12 @@
+[スクリプトファイル名]
+hello-world
+
+[仕様]
+実行すると、標準出力に「Hello World」と出力して終了する。
+リターンコードは 0 であること。
+
+[実行例]
+$ ./hello-world
+Hello World
+$ echo $?
+0
