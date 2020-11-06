@@ -1,0 +1,35 @@
+#!/bin/bash
+
+#[パラメータ]
+#$1: 整数X
+#$2: 整数Y
+declare -r numberX=$1
+declare -r numberY=$2
+
+#パラメータ過多
+if (( $# > 2 )); then
+    echo "エラー：パラメータが2つを超えています"
+    exit 1
+
+#パラメータ過少
+elif (( $# < 2 )); then
+    echo "エラー：パラメータが2つありません"
+    exit 2
+
+#第1パラメータが整数ではない
+elif [[ ! ${numberX} =~ ^([+-][0-9]+|[0-9]+)$ ]]; then
+    echo "エラー：第一引数が整数ではありません"
+    exit 3
+
+#第2パラメータが整数ではない
+elif [[ ! ${numberY} =~ ^([+-][0-9]+|[0-9]+)$ ]]; then
+    echo "エラー：第二引数が整数ではありません"
+    exit 4
+
+fi
+
+#整数Xと整数Yを加算した値を出力する。
+declare -r result=$((numberX + numberY))
+
+echo ${result}
+exit 0
