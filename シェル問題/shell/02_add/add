@@ -2,9 +2,10 @@
 
 #[パラメータ]
 #$1: 整数X
+declare -r number_x=$1
+
 #$2: 整数Y
-declare -r numberX=$1
-declare -r numberY=$2
+declare -r number_y=$2
 
 #パラメータ過多
 if (( $# > 2 )); then
@@ -16,20 +17,29 @@ elif (( $# < 2 )); then
     echo "エラー: パラメータが少なすぎます。パラメータを2つ入力してください。"
     exit 2
 
-#第1パラメータが整数ではない
-elif [[ ! ${numberX} =~ ^([+-][0-9]+|[0-9]+)$ ]]; then
-    echo "エラー: 第1パラメータが整数ではありません。"
+# この後の計算は整数でないと実行できないため、
+# 整数かどうかをチェックする関数
+function is_integer() {
+    local -r value=$1
+    if [[ ! ${value} =~ ^([+-]?[0-9]+)$ ]]; then
+        return 5
+    fi
+}
+
+#第1パラメータが整数ではない時、エラーを出力して終了
+elif ! is_integer "${number_x}" ; then
+    echo "エラー: 第1パラメータが整数ではありません。" >&2
     exit 3
 
-#第2パラメータが整数ではない
-elif [[ ! ${numberY} =~ ^([+-][0-9]+|[0-9]+)$ ]]; then
-    echo "エラー: 第2パラメータが整数ではありません。"
+#第2パラメータが整数ではない時、エラーを出力して終了
+elif ! is_integer "${number_y}" ; then
+    echo "エラー: 第2パラメータが整数ではありません。" >&2
     exit 4
 
 fi
 
 #整数Xと整数Yを加算した値を出力する
-declare -r result=$((numberX + numberY))
+declare -r result=$((number_x + number_y))
 
 echo ${result}
 exit 0
