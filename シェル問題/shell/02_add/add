@@ -22,9 +22,7 @@ fi
 # 整数かどうかをチェックする関数
 function is_integer() {
     local -r value=$1
-    if [[ ! ${value} =~ ^([+-]?[0-9]+)$ ]]; then
-        return 5
-    fi
+    [[ ${value} =~ ^([+-]?[0-9]+)$ ]]
 }
 
 #第1パラメータが整数ではない時、エラーを出力して終了
