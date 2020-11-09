@@ -28,7 +28,7 @@ elif [[ ! ${numberY} =~ ^([+-][0-9]+|[0-9]+)$ ]]; then
 
 fi
 
-#整数Xと整数Yを加算した値を出力する。
+#整数Xと整数Yを加算した値を出力する
 declare -r result=$((numberX + numberY))
 
 echo ${result}
