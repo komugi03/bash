@@ -55,13 +55,29 @@ function division_by_zero() {
 
 # --- パラメータチェック ---
 
+# $1: 第一引数
+# $2: 
+# $3: 
+
 # 不正な演算子チェック
+if ! is_operator "$1"; then
+    error "エラー: 不正な演算子が入力されました。"
+    operator
 
 # 左項値整数値チェック
+elif ! is_integer "$2"; then
+    error "エラー: 整数以外の値が入力されました。"
+    left_check
 
 # 右項値整数値チェック
+elif ! is_integer "$3"; then
+    error "エラー: 整数以外の値が入力されました。"
+    right_check
 
 # ゼロ除算チェック
+elif ! division_by_zero "$3"; then
+    error "エラー: ゼロで除算しようとしました。"
+fi
 
 # --- 主処理 ---
 
