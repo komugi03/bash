@@ -2,8 +2,7 @@
 
 # 
 # 概要: 左項値と右項値を演算した値を以下の形式で標準出力に出力する。
-# 
-# 形式: <左項値> <演算子> <右項値> = <演算結果>
+# 　　　<左項値> <演算子> <右項値> = <演算結果>
 # 
 # パラメータ: 
 # 　なし
@@ -16,12 +15,6 @@
 
 # リターンコード: 成功
 declare -ri RC_SUCCESS=0
-
-# 期待する演算子
-declare -r EXPECTED_OPERATORS="+*/-"
-
-# 
-
 
 # --- 関数定義 ---
 
@@ -36,7 +29,7 @@ function error() {
 # $1: 値
 function is_operator() {
     local -r value=$1
-    [[ value =~ ^[${EXPECTED_OPERATORS}]$ ]]
+    [[ value =~ ^[+*/-]$ ]]
 }
 
 # 値が整数かどうかを判定する
@@ -55,48 +48,64 @@ function division_by_zero() {
 
 # 演算子の入力を求める
 function input_operator() {
-    local -r value
-    read -p '演算子を入力してください (+ - * /): ' value
+    local -r operator
+    read -p '演算子を入力してください (+ - * /): ' operator_inputed
+
+    # 不正な演算子チェック
+    if is_operator "${operator_inputed}"; then
+        return
+    else
+        error "エラー: 不正な演算子が入力されました。"
+        return
+    fi
 }
 
 # 左項値の入力を求める
-function input_left
+function input_left() {
+    local -r left_inputed
+    read -p '左項値を入力してください (整数): ' left_inputed
+
+    if is_integer "${left_inputed}"; then
+        local -r left_number=${left_inputed}
+    else
+        error "エラー: 整数以外の値が入力されました。"
+        return
+    fi
+}
 
 # 右項値の入力を求める
-function input_right
+function input_right() {
+    local -r right_inputed
+    read -p '右項値を入力してください (整数): ' right_inputed
 
-# 処理を継続するかを聞く
-function continue_or_not
+    if is_integer "${right_inputed}"; then
+        local -r right_number=${right_inputed}
+        # ゼロ除算チェック
+        if ! division_by_zero "$1"; then
+            error "エラー: ゼロで除算しようとしました。"
+        fi
+    else
+        error "エラー: 整数以外の値が入力されました。"
+        return
+    fi
+}
 
-# --- パラメータチェック ---
+# 処理を継続するかを聞く。
+# yesが入力されると処理が継続され、noが入力されるとループをぬける。
+function continue_or_not() {
+    local -r yes_or_no
+    read -p '処理を継続しますか？ (yes/no): ' yes_or_no
 
-# $1: 第一引数
-# $2: 
-# $3: 
+    if [[ yes_or_no == "yes" ]]; then
+        return
+    elif [[ yes_or_no == "yes" ]]; then
+        echo "処理を終了します。"
+        break
+    fi
+}
 
-# 不正な演算子チェック
-if ! is_operator "$1"; then
-    error "エラー: 不正な演算子が入力されました。"
-    input_operator
-
-# 左項値整数値チェック
-elif ! is_integer "$2"; then
-    error "エラー: 整数以外の値が入力されました。"
-    input_left
-
-# 右項値整数値チェック
-elif ! is_integer "$3"; then
-    error "エラー: 整数以外の値が入力されました。"
-    input_right
-
-# ゼロ除算チェック
-elif ! division_by_zero "$3"; then
-    error "エラー: ゼロで除算しようとしました。"
-fi
 
 # --- 主処理 ---
-
-# 処理継続するか？のループ
 
 while :
     do
@@ -108,5 +117,6 @@ while :
         input_right
         # 処理を継続するかを聞く
         continue_or_not
+        break;
     done
 exit ${RC_SUCCESS}
