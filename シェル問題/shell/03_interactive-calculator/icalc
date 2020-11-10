@@ -107,6 +107,20 @@ function continue_or_not() {
     fi
 }
 
+# 以下のような出力形式で結果を出力する。
+# <左項値> <演算子> <右項値> = <演算結果>
+    function desplay_result() {
+        local -r result
+
+        case ${operator} in
+            "+" ) result=$(( left + right ));;
+            "-" ) result=$(( left - right ));;
+            "*" ) result=$(( left * right ));;
+            "/" ) result=$(( left / right ));;
+        esac
+
+        echo "${left}" "${operator}" "${right}" "=" "${result}"
+    }
 
 # --- 主処理 ---
 
@@ -118,6 +132,8 @@ while :
         input_left
         # 右項値
         input_right
+        # 結果を出力する
+        desplay_result
         # 処理を継続するかを聞く
         continue_or_not
         break;
