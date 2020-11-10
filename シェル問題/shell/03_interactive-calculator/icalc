@@ -29,33 +29,33 @@ function error() {
 # $1: 値
 function is_operator() {
     local -r value=$1
-    [[ value =~ ^[+*/-]$ ]]
+    [[ ${value} =~ ^[+*/-]$ ]]
 }
 
 # 値が整数かどうかを判定する
 # $1: 値
 function is_integer() {
     local -r value=$1
-    [[ value =~ ^[+-]?[0-9]+$ ]]
+    [[ ${value} =~ ^[+-]?[0-9]+$ ]]
 }
 
 # ゼロ除算をしているかどうかを判定する
 # $1: 値
 function division_by_zero() {
     local -r value=$1
-    [[ value =~ ^0+$ ]]
+    [[ ${value} =~ ^0+$ ]]
 }
 
-# 演算子の入力を求める
+# 演算子の入力を求めて、入力値が演算子かどうかチェックし、エラーを標準エラー出力に出力する。
 function input_operator() {
-    local -r operator
+    local operator
     while :
         do
-            read -p '演算子を入力してください (+ - * /): ' operator_inputed
+            read -rp '演算子を入力してください (+ - * /): ' operator_inputed
 
             # 不正な演算子チェック
             if is_operator "${operator_inputed}"; then
-                local -r operator=${operator_inputed}
+                ${operator="${operator_inputed}"
                 return
             else
                 error "エラー: 不正な演算子が入力されました。"
@@ -66,10 +66,10 @@ function input_operator() {
 # 左項値の入力を求める
 function input_left() {
     local -r left_inputed
-    read -p '左項値を入力してください (整数): ' left_inputed
+    read -rp '左項値を入力してください (整数): ' left_inputed
 
     if is_integer "${left_inputed}"; then
-        local -r left_number=${left_inputed}
+        local left_inputed=${left_inputed}
     else
         error "エラー: 整数以外の値が入力されました。"
         return
@@ -79,10 +79,11 @@ function input_left() {
 # 右項値の入力を求める
 function input_right() {
     local -r right_inputed
-    read -p '右項値を入力してください (整数): ' right_inputed
+    read -rp '右項値を入力してください (整数): ' right_inputed
 
     if is_integer "${right_inputed}"; then
-        local -r right_number=${right_inputed}
+        local right_number=${right_inputed}
+
         # ゼロ除算チェック
         if ! division_by_zero "$1"; then
             error "エラー: ゼロで除算しようとしました。"
@@ -97,13 +98,13 @@ function input_right() {
 # yesが入力されると処理が継続され、noが入力されるとループをぬける。
 function continue_or_not() {
     local -r yes_or_no
-    read -p '処理を継続しますか？ (yes/no): ' yes_or_no
+    read -rp '処理を継続しますか？ (yes/no): ' yes_or_no
 
-    if [[ yes_or_no == "yes" ]]; then
+    if [[ ${yes_or_no} == "yes" ]]; then
         return
-    elif [[ yes_or_no == "yes" ]]; then
+    elif [[ ${yes_or_no} == "no" ]]; then
         echo "処理を終了します。"
-        break
+        return
     fi
 }
 
