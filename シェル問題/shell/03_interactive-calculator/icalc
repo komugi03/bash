@@ -26,6 +26,11 @@ declare -r EXPECTED_OPERATORS="+*/-"
 # --- 関数定義 ---
 
 # エラーを出力して終了する
+# $1: エラーメッセージ
+function error() {
+    local -r message=$1
+    echo "${message}">&2
+}
 
 # 値が期待した演算子かどうかを判定する
 # $1: 値
@@ -42,7 +47,11 @@ function is_integer() {
 }
 
 # ゼロ除算をしているかどうかを判定する
-# 
+# $1: 値
+function division_by_zero() {
+    local -r value=$1
+    [[ value =~ ^0+$ ]]
+}
 
 # --- パラメータチェック ---
 
