@@ -53,6 +53,21 @@ function division_by_zero() {
     [[ value =~ ^0+$ ]]
 }
 
+# 演算子の入力を求める
+function input_operator() {
+    local -r value
+    read -p '演算子を入力してください (+ - * /): ' value
+}
+
+# 左項値の入力を求める
+function input_left
+
+# 右項値の入力を求める
+function input_right
+
+# 処理を継続するかを聞く
+function continue_or_not
+
 # --- パラメータチェック ---
 
 # $1: 第一引数
@@ -62,17 +77,17 @@ function division_by_zero() {
 # 不正な演算子チェック
 if ! is_operator "$1"; then
     error "エラー: 不正な演算子が入力されました。"
-    operator
+    input_operator
 
 # 左項値整数値チェック
 elif ! is_integer "$2"; then
     error "エラー: 整数以外の値が入力されました。"
-    left_check
+    input_left
 
 # 右項値整数値チェック
 elif ! is_integer "$3"; then
     error "エラー: 整数以外の値が入力されました。"
-    right_check
+    input_right
 
 # ゼロ除算チェック
 elif ! division_by_zero "$3"; then
@@ -86,11 +101,12 @@ fi
 while :
     do
         # 演算子
-
+        input_operator
         # 左項値
-        
+        input_left
         # 右項値
-        
-        # yes/no
+        input_right
+        # 処理を継続するかを聞く
+        continue_or_not
     done
 exit ${RC_SUCCESS}
