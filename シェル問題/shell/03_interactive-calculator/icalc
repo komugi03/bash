@@ -49,15 +49,18 @@ function division_by_zero() {
 # 演算子の入力を求める
 function input_operator() {
     local -r operator
-    read -p '演算子を入力してください (+ - * /): ' operator_inputed
+    while :
+        do
+            read -p '演算子を入力してください (+ - * /): ' operator_inputed
 
-    # 不正な演算子チェック
-    if is_operator "${operator_inputed}"; then
-        return
-    else
-        error "エラー: 不正な演算子が入力されました。"
-        return
-    fi
+            # 不正な演算子チェック
+            if is_operator "${operator_inputed}"; then
+                local -r operator=${operator_inputed}
+                return
+            else
+                error "エラー: 不正な演算子が入力されました。"
+            fi
+        done
 }
 
 # 左項値の入力を求める
