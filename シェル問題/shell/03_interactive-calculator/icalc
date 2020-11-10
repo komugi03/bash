@@ -48,14 +48,14 @@ function division_by_zero() {
 
 # 演算子の入力を求めて、入力値が演算子かどうかチェックし、エラーを標準エラー出力に出力する。
 function input_operator() {
-    local operator
     while :
         do
+            local -r operator_inputed
             read -rp '演算子を入力してください (+ - * /): ' operator_inputed
 
             # 不正な演算子チェック
             if is_operator "${operator_inputed}"; then
-                ${operator="${operator_inputed}"
+                local operator="${operator_inputed}"
                 return
             else
                 error "エラー: 不正な演算子が入力されました。"
@@ -65,33 +65,40 @@ function input_operator() {
 
 # 左項値の入力を求める
 function input_left() {
-    local -r left_inputed
-    read -rp '左項値を入力してください (整数): ' left_inputed
+    while :
+        do
+            local -r left_inputed
+            read -rp '左項値を入力してください (整数): ' left_inputed
 
-    if is_integer "${left_inputed}"; then
-        local left_inputed=${left_inputed}
-    else
-        error "エラー: 整数以外の値が入力されました。"
-        return
-    fi
+            if is_integer "${left_inputed}"; then
+                local left=${left_inputed}
+                return
+            else
+                error "エラー: 整数以外の値が入力されました。"
+            fi
+        done
 }
 
 # 右項値の入力を求める
 function input_right() {
-    local -r right_inputed
-    read -rp '右項値を入力してください (整数): ' right_inputed
+    while :
+        do
+            local -r right_inputed
+            read -rp '右項値を入力してください (整数): ' right_inputed
 
-    if is_integer "${right_inputed}"; then
-        local right_number=${right_inputed}
+            if is_integer "${right_inputed}"; then
 
-        # ゼロ除算チェック
-        if ! division_by_zero "$1"; then
-            error "エラー: ゼロで除算しようとしました。"
-        fi
-    else
-        error "エラー: 整数以外の値が入力されました。"
-        return
-    fi
+                # ゼロ除算チェック
+                if ! division_by_zero "${right_inputed}"; then
+                    local right=${right_inputed}
+                    return
+                else
+                    error "エラー: ゼロで除算しようとしました。"
+                fi
+            else
+                error "エラー: 整数以外の値が入力されました。"
+            fi
+        done
 }
 
 # 処理を継続するかを聞く。
