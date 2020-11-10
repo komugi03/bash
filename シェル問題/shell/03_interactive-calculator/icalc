@@ -15,18 +15,34 @@
 # --- 定数定義 ---
 
 # リターンコード: 成功
+declare -ri RC_SUCCESS=0
 
-# 
+# 期待する演算子
+declare -r EXPECTED_OPERATORS="+*/-"
 
 # 
 
 
 # --- 関数定義 ---
 
-# 
+# エラーを出力して終了する
 
-# 
+# 値が期待した演算子かどうかを判定する
+# $1: 値
+function is_operator() {
+    local -r value=$1
+    [[ value =~ ^[${EXPECTED_OPERATORS}]$ ]]
+}
 
+# 値が整数かどうかを判定する
+# $1: 値
+function is_integer() {
+    local -r value=$1
+    [[ value =~ ^[+-]?[0-9]+$ ]]
+}
+
+# ゼロ除算をしているかどうかを判定する
+# 
 
 # --- パラメータチェック ---
 
@@ -41,5 +57,15 @@
 # --- 主処理 ---
 
 # 処理継続するか？のループ
-# 
 
+while :
+    do
+        # 演算子
+
+        # 左項値
+        
+        # 右項値
+        
+        # yes/no
+    done
+exit ${RC_SUCCESS}
