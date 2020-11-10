@@ -87,9 +87,6 @@ function input_right() {
             read -rp '右項値を入力してください (整数): ' right_inputed
 
             if is_integer "${right_inputed}"; then
-
-                # ゼロ除算チェック
-                if ! division_by_zero "${right_inputed}"; then
                     local right=${right_inputed}
                     return
                 else
@@ -124,7 +121,11 @@ function continue_or_not() {
             "+" ) result=$(( left + right ));;
             "-" ) result=$(( left - right ));;
             "*" ) result=$(( left * right ));;
-            "/" ) result=$(( left / right ));;
+            "/" ) # ゼロ除算チェック
+                if ! division_by_zero "${right_inputed}"; then
+                    local right=${right_inputed}
+                result=$(( left / right ));;
+            * ) error "エラー: 不正な演算子が入力されました。"
         esac
 
         echo "${left}" "${operator}" "${right}" "=" "${result}"
