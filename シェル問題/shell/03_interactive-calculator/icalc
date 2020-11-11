@@ -103,15 +103,17 @@ function input_right() {
 # 処理を継続するかを聞く。
 # yesが入力されると処理が継続され、noが入力されるとループをぬける。
 function continue_or_not() {
-    local yes_or_no
-    read -rp '処理を継続しますか？ (yes/no): ' yes_or_no
-
-    if [[ ${yes_or_no} == "yes" ]]; then
-        return
-    elif [[ ${yes_or_no} == "no" ]]; then
-        echo "処理を終了します。"
-        echo "break"
-    fi
+    while :
+        do
+            local yes_or_no
+            read -rp '処理を継続しますか？ (yes/no): ' yes_or_no
+            if [[ ${yes_or_no} == "yes" ]]; then
+                return
+            elif [[ ${yes_or_no} == "no" ]]; then
+                echo "処理を終了します。"
+                return 1
+            fi
+        done
 }
 
 # 計算結果を、以下のような出力形式で標準出力に出力する。
@@ -148,7 +150,8 @@ function display_result() {
 while :
     do
         display_result "$(input_operator)" "$(input_left)" "$(input_right)"
-        continue_or_not
-
+        if ! continue_or_not; then
+            break
+        fi
     done
 exit ${RC_SUCCESS}

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+function continue_or_not() {
+    while :
+        do
+            local yes_or_no
+            read -rp '処理を継続しますか？ (yes/no): ' yes_or_no
+            if [[ ${yes_or_no} == "yes" ]]; then
+                return
+            elif [[ ${yes_or_no} == "no" ]]; then
+                echo "処理を終了します。"
+                return
+            fi
+        done
+}
+
+continue_or_not
