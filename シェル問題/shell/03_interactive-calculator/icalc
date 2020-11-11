@@ -103,7 +103,7 @@ function input_right() {
 # 処理を継続するかを聞く。
 # yesが入力されると処理が継続され、noが入力されるとループをぬける。
 function continue_or_not() {
-    local -r yes_or_no
+    local yes_or_no
     read -rp '処理を継続しますか？ (yes/no): ' yes_or_no
 
     if [[ ${yes_or_no} == "yes" ]]; then
@@ -147,7 +147,7 @@ function display_result() {
 
 while :
     do
-        display_result　"$(input_operator)" "$(input_left)" "$(input_right)"
+        display_result "$(input_operator)" "$(input_left)" "$(input_right)"
         continue_or_not
 
     done
