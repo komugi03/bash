@@ -140,7 +140,7 @@ function display_result() {
             * ) error "エラー: 不正な演算子が入力されました。";;
         esac
 
-        echo "${left}" "${operator}" "${right}" "=" "${result}"
+        echo "${left} ${operator} ${right} = ${result}"
 }
 
 # --- 主処理 ---
