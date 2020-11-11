@@ -112,6 +112,8 @@ function continue_or_not() {
             elif [[ ${yes_or_no} == "no" ]]; then
                 echo "処理を終了します。"
                 return 1
+            else
+                error "エラー: yes または no 以外の値が入力されました。"
             fi
         done
 }
