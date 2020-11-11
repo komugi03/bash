@@ -116,13 +116,17 @@ function continue_or_not() {
 
 # 計算結果を、以下のような出力形式で標準出力に出力する。
 # <左項値> <演算子> <右項値> = <演算結果>
-    function display_result() { 
-        local -r result
-        local -r operator=$(input_operator)
-        local -r left=$(input_left)
-        local -r right=$(input_right)
+# $1: 演算子
+# $2: 左項値
+# $3: 右項値
 
-        case ${operator} in
+function display_result() { 
+    local result
+    local -r operator=$1
+    local -r left=$2
+    local -r right=$3
+
+        case "${operator}" in
             "+" ) result=$(( left + right ));;
             "-" ) result=$(( left - right ));;
             "*" ) result=$(( left * right ));;
@@ -137,16 +141,13 @@ function continue_or_not() {
         esac
 
         echo "${left}" "${operator}" "${right}" "=" "${result}"
-    }
+}
 
 # --- 主処理 ---
 
 while :
     do
-        input_operator
-        input_left
-        input_right
-        display_result
+        display_result　"$(input_operator)" "$(input_left)" "$(input_right)"
         continue_or_not
 
     done
