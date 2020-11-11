@@ -1,0 +1,74 @@
+#!/bin/bash
+#
+# 形式: add 整数X 整数Y
+#
+# 概要: 整数Xと整数Yを加算した値を標準出力に出力します。
+#
+# パラメータ:
+#   整数X: 整数値
+#   整数Y: 整数値
+#
+# リターンコード:
+#   正常終了: 0
+#   パラメータ過多: 1
+#   パラメータ過少: 2
+#   数値Xが非数値: 3
+#   数値Yが非数値: 4
+#
+
+# --- 定数定義 ---
+
+# リターンコード: 成功
+declare -ri RC_SUCCESS=0
+# リターンコード: パラメータ過多
+declare -ri RC_TOO_MANY_PARAMETERS=1
+# リターンコード: パラメータ過少
+declare -ri RC_TOO_LITTLE_PARAMETERS=2
+# リターンコード: パラメータ1非数値
+declare -ri RC_PARAMETER_1_IS_NOT_AN_INTEGER=3
+# リターンコード: パラメータ2非数値
+declare -ri RC_PARAMETER_2_IS_NOT_AN_INTEGER=4
+
+# 想定引数個数
+declare -ri EXPECTED_PARAMETERS=2
+
+# --- 関数定義 ---
+
+# エラーを出力して終了する
+# $1: エラーメッセージ
+# $2: リターンコード
+error() {
+    local -r message=$1
+    local -ri return_code=$2
+
+    echo "${message}" >&2
+    exit "${return_code}"
+}
+
+# 値が整数かどうかを判定する
+# $1: 値
+is_integer() {
+    [[ $1 =~ ^[+-]?[0-9]+$ ]]
+}
+
+
+# --- パラメータチェック ---
+
+if (( $# > EXPECTED_PARAMETERS )); then
+    error "エラー: パラメータが多すぎます。" ${RC_TOO_MANY_PARAMETERS}
+elif (( $# < EXPECTED_PARAMETERS )); then
+    error "エラー: パラメータが少なすぎます。" ${RC_TOO_LITTLE_PARAMETERS}
+elif ! is_integer "$1"; then
+    error "エラー: 第1パラメータが整数ではありません。" ${RC_PARAMETER_1_IS_NOT_AN_INTEGER}
+elif ! is_integer "$2"; then
+    error "エラー: 第2パラメータが整数ではありません。" ${RC_PARAMETER_2_IS_NOT_AN_INTEGER}
+fi
+
+
+# --- 主処理 ---
+
+declare -ri left=$1
+declare -ri right=$2
+echo $(( left + right ))
+
+exit ${RC_SUCCESS}

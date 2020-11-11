@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# declare -r EXPECTED_OPERATORS="+*/-"
+
+# echo "${EXPECTED_OPERATORS}"
+
+# declare -r left=2
+# declare -r right=3
+# echo $(( left + right ))
+
+# declare -r value="?"
+# if [[ ${value} =~ ^[+*/-]$ ]]; then
+#     echo "OK"
+# else
+#     echo "NG"
+# fi
+
+
+declare left=1
+declare operator="+"
+declare right=2
+declare -r result=$(( left + right ))
+
+echo "${left}" "${operator}" "${right}" "=" "${result}"
