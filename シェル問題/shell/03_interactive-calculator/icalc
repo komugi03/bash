@@ -137,6 +137,7 @@ function display_result() {
                 result=$(( left / right ))
             else
                 error "エラー: ゼロで除算しようとしました。"
+                return
             fi;;
 
             * ) error "エラー: 不正な演算子が入力されました。";;

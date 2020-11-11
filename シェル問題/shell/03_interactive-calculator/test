@@ -1,17 +1,33 @@
 #!/bin/bash
 
-function continue_or_not() {
-    while :
-        do
-            local yes_or_no
-            read -rp '処理を継続しますか？ (yes/no): ' yes_or_no
-            if [[ ${yes_or_no} == "yes" ]]; then
-                return
-            elif [[ ${yes_or_no} == "no" ]]; then
-                echo "処理を終了します。"
-                return
-            fi
-        done
+# function continue_or_not() {
+#     while :
+#         do
+#             local yes_or_no
+#             read -rp '処理を継続しますか？ (yes/no): ' yes_or_no
+#             if [[ ${yes_or_no} == "yes" ]]; then
+#                 return
+#             elif [[ ${yes_or_no} == "no" ]]; then
+#                 echo "処理を終了します。"
+#                 return
+#             fi
+#         done
+# }
+
+# continue_or_not
+
+function division_by_zero() {
+    local -r operator=$1
+    local -r right=$2
+    if [[ ${operator} == "/" ]]; then
+        [[ ${right} =~ ^[+-]?0+$ ]]
+    else
+        return 1
+    fi
 }
 
-continue_or_not
+if ! division_by_zero "/" "0"; then
+                echo "割り算"
+            else
+                echo "エラー: ゼロで除算しようとしました。"
+            fi
