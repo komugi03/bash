@@ -39,23 +39,28 @@ function is_integer() {
     [[ ${value} =~ ^[+-]?[0-9]+$ ]]
 }
 
-# ゼロ除算をしているかどうかを判定する
-# $1: 値
+# ゼロ除算をしているかどうかを判定する。除算を0でしようとしていたら真。
+# $1: 演算子
+# $2: 右項
 function division_by_zero() {
-    local -r value=$1
-    [[ ${value} =~ ^0+$ ]]
+    local -r operator=$1
+    local -r right=$2
+    if [[ ${operator} == "/" ]]; then
+        [[ ${right} =~ ^[+-]?0+$ ]]
+    else
+        return 1
+    fi
 }
 
-# 演算子の入力を求めて、入力値が演算子かどうかチェックし、エラーを標準エラー出力に出力する。
+# 演算子の入力を求めて、入力値が演算子でなかった場合、エラーメッセージを標準エラー出力に出力する。
 function input_operator() {
     while :
         do
-            local -r operator_inputed
+            local operator_inputed
             read -rp '演算子を入力してください (+ - * /): ' operator_inputed
 
-            # 不正な演算子チェック
             if is_operator "${operator_inputed}"; then
-                local operator="${operator_inputed}"
+                echo "${operator_inputed}"
                 return
             else
                 error "エラー: 不正な演算子が入力されました。"
@@ -63,15 +68,15 @@ function input_operator() {
         done
 }
 
-# 左項値の入力を求める
+# 左項値の入力を求め、入力値が整数でなかった場合、エラーメッセージを標準エラー出力に出力する。
 function input_left() {
     while :
         do
-            local -r left_inputed
+            local left_inputed
             read -rp '左項値を入力してください (整数): ' left_inputed
 
             if is_integer "${left_inputed}"; then
-                local left=${left_inputed}
+                echo "${left_inputed}"
                 return
             else
                 error "エラー: 整数以外の値が入力されました。"
@@ -79,19 +84,16 @@ function input_left() {
         done
 }
 
-# 右項値の入力を求める
+# 右項値の入力を求め、入力値が整数でなかった場合、エラーメッセージを標準エラー出力に出力する。
 function input_right() {
     while :
         do
-            local -r right_inputed
+            local right_inputed
             read -rp '右項値を入力してください (整数): ' right_inputed
 
             if is_integer "${right_inputed}"; then
-                    local right=${right_inputed}
+                    echo "${right_inputed}"
                     return
-                else
-                    error "エラー: ゼロで除算しようとしました。"
-                fi
             else
                 error "エラー: 整数以外の値が入力されました。"
             fi
@@ -108,24 +110,30 @@ function continue_or_not() {
         return
     elif [[ ${yes_or_no} == "no" ]]; then
         echo "処理を終了します。"
-        return
+        echo "break"
     fi
 }
 
-# 以下のような出力形式で結果を出力する。
+# 計算結果を、以下のような出力形式で標準出力に出力する。
 # <左項値> <演算子> <右項値> = <演算結果>
-    function desplay_result() {
+    function display_result() { 
         local -r result
+        local -r operator=$(input_operator)
+        local -r left=$(input_left)
+        local -r right=$(input_right)
 
         case ${operator} in
             "+" ) result=$(( left + right ));;
             "-" ) result=$(( left - right ));;
             "*" ) result=$(( left * right ));;
-            "/" ) # ゼロ除算チェック
-                if ! division_by_zero "${right_inputed}"; then
-                    local right=${right_inputed}
-                result=$(( left / right ));;
-            * ) error "エラー: 不正な演算子が入力されました。"
+            "/" ) 
+            if ! division_by_zero "${operator}" "${right}"; then
+                result=$(( left / right ))
+            else
+                error "エラー: ゼロで除算しようとしました。"
+            fi;;
+
+            * ) error "エラー: 不正な演算子が入力されました。";;
         esac
 
         echo "${left}" "${operator}" "${right}" "=" "${result}"
@@ -135,16 +143,11 @@ function continue_or_not() {
 
 while :
     do
-        # 演算子
         input_operator
-        # 左項値
         input_left
-        # 右項値
         input_right
-        # 結果を出力する
-        desplay_result
-        # 処理を継続するかを聞く
+        display_result
         continue_or_not
-        break;
+
     done
 exit ${RC_SUCCESS}
