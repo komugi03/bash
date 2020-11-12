@@ -43,6 +43,7 @@ function exist_or_not() {
     local file_name=$1
     if [ ! -e file_name ]; then
         error "エラー: ファイル $file_name の処理中にエラーが発生しました。"
+        exit ${RC_NOT_EXIST_FILE}
     fi
 }
 
