@@ -31,7 +31,7 @@ function error() {
 
 # パラメータが入力されているかを判定する
 function enter_parameter_or_not() {
-    if (( $#=0 )); then
+    if (( $#==0 )); then
         exit
     fi
 }
@@ -71,13 +71,12 @@ function count_line_numbers() {
 
 # --- 主処理 ---
 
-declare -r i
+declare i
 
 for i in $(seq $#)
 do
-    declare -r parameter=$1
-    # 引数うけとり
-    enter_parameter_or_not
+    declare -r parameter=$"$i"
+    enter_parameter_or_not "$i"
     count_line_numbers "${parameter}"
     echo "parameter: count_line_numbers"
 done
