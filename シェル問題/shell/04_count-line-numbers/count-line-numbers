@@ -24,36 +24,61 @@ declare -ri RC_NOT_EXIST_FILE=1
 
 # エラーを出力して終了する
 # $1: エラーメッセージ
-# $2: リターンコード
-error() {
+function error() {
     local -r message=$1
-    local -ri return_code=$2
-
     echo "${message}" >&2
-    exit "${return_code}"
 }
 
 # パラメータが入力されているかを判定する
-if $#=0
+function enter_parameter_or_not() {
+    if (( $#=0 )); then
+        exit
+    fi
+}
 
-# 存在しているかどうかを判定する
+# ファイルが存在しているかどうかを判定し、
+# 存在していなかったらエラー文を標準エラー出力に出力する。
 # $1: 判定するファイルパス
-
-
-# 中身があるかどうかを判定する
-# $1: 判定するファイルパス
+function exist_or_not() {
+    local file_name=$1
+    if [ ! -e file_name ]; then
+        error "エラー: ファイル $file_name の処理中にエラーが発生しました。"
+    fi
+}
 
 # パラメータを受け取る　→必要ないかも？
 # $1: パラメータ
+# function get_parameter() {}
 
 # 指定されたファイルパスの行数をカウントする
 # $1: 指定ファイルパス
+function count_line_numbers() {
+    local file_name=$1
+    exist_or_not "${file_name}"
+    < test.txt wc -l
+}
+
 
 # カウントした行数を表示する
+# function display_count_line_numbers() {
+    
+# }
 
 
 # --- パラメータチェック ---
 
+
 # --- 主処理 ---
 
+declare -r i
 
+for i in $(seq $#)
+do
+    declare -r parameter=$1
+    # 引数うけとり
+    enter_parameter_or_not
+    count_line_numbers "${parameter}"
+    echo "parameter: count_line_numbers"
+done
+
+exit ${RC_SUCCESS}
