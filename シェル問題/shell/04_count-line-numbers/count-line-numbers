@@ -54,7 +54,7 @@ function exist_or_not() {
 function count_line_numbers() {
     local file_name=$1
     exist_or_not "${file_name}"
-    < test.txt wc -l
+    < "${file_name}" wc -l
 }
 
 # --- 主処理 ---
@@ -66,9 +66,9 @@ do
     declare -r parameter=$"$i"
     declare -ri number_parameters=$#
 
-    enter_parameter_or_not "${number_parameters}"
-    count_line_numbers "${parameter}"
-    echo "parameter: count_line_numbers"
+    declare result_count_line_numbers
+    result_count_line_numbers="$(count_line_numbers "${parameter}")"
+    echo "${parameter}: ${result_count_line_numbers}"
 done
 
 exit ${RC_SUCCESS}

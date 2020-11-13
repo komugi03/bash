@@ -53,17 +53,35 @@
 # echo "OK"
 
 
-declare -ri zero=0
-declare -ri total=$#
+# declare -ri zero=0
+# declare -ri total=$#
 
-# パラメータが入力されているかを判定する
-function enter_parameter_or_not() {
+# # パラメータが入力されているかを判定する
+# function enter_parameter_or_not() {
 
     
-    if [[ total -eq ${zero} ]]; then
-        echo "$#"
-    fi
+#     if [[ total -eq ${zero} ]]; then
+#         echo "$#"
+#     fi
+# }
+
+# enter_parameter_or_not
+# echo "OK"
+
+# < test.txt wc -l
+
+
+declare -r parameter="test.txt"
+
+# 指定されたファイルパスの行数をカウントする
+# $1: 指定ファイルパス
+function count_line_numbers() {
+    local file_name=$1
+    # exist_or_not "${file_name}"
+    < "${file_name}" wc -l
 }
 
-enter_parameter_or_not
-echo "OK"
+declare result_count_line_numbers
+result_count_line_numbers="$(count_line_numbers "${parameter}")"
+
+echo "${parameter}: ${result_count_line_numbers}"
