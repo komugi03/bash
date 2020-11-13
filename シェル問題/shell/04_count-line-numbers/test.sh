@@ -87,13 +87,42 @@
 # echo "${parameter}: ${result_count_line_numbers}"
 
 
-declare i
-echo "引数は$#個"
+# declare i
+# echo "引数は$#個"
 
-for i in $(seq $#)
-do
-    declare parameter
-    parameter=$(eval echo '$'"${i}")
-    # declare parameter='$'${i}
-    echo "${parameter}"
-done
+# for i in $(seq $#)
+# do
+#     declare parameter
+#     parameter=$(eval echo '$'"${i}")
+#     # declare parameter='$'${i}
+#     echo "${parameter}"
+# done
+
+declare -ri RC_NOT_EXIST_FILE=1
+
+function error() {
+    local -r message=$1
+    echo "${message}" >&2
+}
+
+function exist_or_not() {
+    local file_name=$1
+    echo "${file_name}"
+    if ! [ -e file_name ]; then
+        error "エラー: ファイル $file_name の処理中にエラーが発生しました。"
+        exit ${RC_NOT_EXIST_FILE}
+    else
+        echo "存在してる"
+    fi
+}
+
+exist_or_not ./test.txt
+
+# function count_line_numbers() {
+#     local file_name=$1
+#     exist_or_not "${file_name}"
+#     < "${file_name}" wc -l
+# }
+
+# declare parameter=$1
+# count_line_numbers "${parameter}"
