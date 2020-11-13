@@ -66,6 +66,7 @@ do
     declare -r parameter=$"$i"
     declare -ri number_parameters=$#
 
+    enter_parameter_or_not "${number_parameters}"
     declare result_count_line_numbers
     result_count_line_numbers="$(count_line_numbers "${parameter}")"
     echo "${parameter}: ${result_count_line_numbers}"

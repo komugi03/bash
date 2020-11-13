@@ -71,17 +71,27 @@
 # < test.txt wc -l
 
 
-declare -r parameter="test.txt"
+# declare -r parameter="test.txt"
 
-# 指定されたファイルパスの行数をカウントする
-# $1: 指定ファイルパス
-function count_line_numbers() {
-    local file_name=$1
-    # exist_or_not "${file_name}"
-    < "${file_name}" wc -l
-}
+# # 指定されたファイルパスの行数をカウントする
+# # $1: 指定ファイルパス
+# function count_line_numbers() {
+#     local file_name=$1
+#     # exist_or_not "${file_name}"
+#     < "${file_name}" wc -l
+# }
 
-declare result_count_line_numbers
-result_count_line_numbers="$(count_line_numbers "${parameter}")"
+# declare result_count_line_numbers
+# result_count_line_numbers="$(count_line_numbers "${parameter}")"
 
-echo "${parameter}: ${result_count_line_numbers}"
+# echo "${parameter}: ${result_count_line_numbers}"
+
+
+declare i
+echo "引数は$#個"
+
+for i in $(seq $#)
+do
+    declare parameter=$"$i"
+    echo "${parameter}"
+done
