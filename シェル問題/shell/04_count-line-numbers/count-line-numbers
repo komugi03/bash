@@ -22,46 +22,43 @@ declare -ri RC_NOT_EXIST_FILE=1
 
 # --- 関数定義 ---
 
-# エラーを出力して終了する
+# エラーメッセージを標準エラー出力に出力する。
 # $1: エラーメッセージ
 function error() {
     local -r message=$1
     echo "${message}" >&2
 }
 
-# ファイルが存在しているかどうかを判定し、
-# 存在していなかったらエラー文を標準エラー出力に出力する。
-# $1: 判定するファイルパス
+# 指定されたファイルパスのファイルが存在しているかどうかを判定する。
+# $1: ファイルパス
 function is_exist() {
     local file_name=$1
     [ -e "${file_name}" ]
 }
 
-# 指定されたファイルパスの行数をカウントして呼び出し元に返す。
-# $1: 指定ファイルパス
+# 指定されたファイルパスのファイルの行数をカウントする。
+# $1: ファイルパス
 function count_line_numbers() {
     local file_name=$1
     < "${file_name}" grep -c ''
 }
 
+
 # --- 主処理 ---
 
-declare i
-declare file_name_parameter
+# パラメータとして渡されたファイルパスにファイルが存在しているとき、そのファイルの行数をカウントし、結果を標準出力に出力する。
+# 存在していないときは、エラー文を標準エラー出力に出力して処理を終了する。
+declare file_name_inputed
 declare result_count_line_numbers
 
-for i in $(seq $#)
-do
-    
-    file_name_parameter=$(eval echo '$'"${i}")
-
-    if is_exist "${file_name_parameter}"; then
-        result_count_line_numbers="$(count_line_numbers "${file_name_parameter}")"
+for file_name_inputed in "$@"; do
+    if is_exist "${file_name_inputed}"; then
+        result_count_line_numbers="$(count_line_numbers "${file_name_inputed}")"
     else
-        error "エラー: ファイル $file_name_parameter の処理中にエラーが発生しました。"
+        error "エラー: ファイル $file_name_inputed の処理中にエラーが発生しました。"
         exit ${RC_NOT_EXIST_FILE}
     fi
-    echo "${file_name_parameter}": "${result_count_line_numbers}"
+    echo "${file_name_inputed}": "${result_count_line_numbers}"
 done
 
 exit ${RC_SUCCESS}
