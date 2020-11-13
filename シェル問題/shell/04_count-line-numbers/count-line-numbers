@@ -30,8 +30,10 @@ function error() {
 }
 
 # パラメータが入力されているかを判定する
+# $1: パラメータの総数
 function enter_parameter_or_not() {
-    if (( $#==0 )); then
+    local number_parameters=$1
+    if [[ number_parameters -eq 0 ]]; then
         exit
     fi
 }
@@ -47,10 +49,6 @@ function exist_or_not() {
     fi
 }
 
-# パラメータを受け取る　→必要ないかも？
-# $1: パラメータ
-# function get_parameter() {}
-
 # 指定されたファイルパスの行数をカウントする
 # $1: 指定ファイルパス
 function count_line_numbers() {
@@ -59,16 +57,6 @@ function count_line_numbers() {
     < test.txt wc -l
 }
 
-
-# カウントした行数を表示する
-# function display_count_line_numbers() {
-    
-# }
-
-
-# --- パラメータチェック ---
-
-
 # --- 主処理 ---
 
 declare i
@@ -76,7 +64,9 @@ declare i
 for i in $(seq $#)
 do
     declare -r parameter=$"$i"
-    enter_parameter_or_not "$i"
+    declare -ri number_parameters=$#
+
+    enter_parameter_or_not "${number_parameters}"
     count_line_numbers "${parameter}"
     echo "parameter: count_line_numbers"
 done
