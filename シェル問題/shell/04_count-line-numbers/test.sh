@@ -131,3 +131,10 @@ declare num
 num=$(echo "$@")
 echo "${num}"
 echo "$#"
+
+echo ${[num]}
+
+declare -a var
+var[1]="hello world"
+n=1
+echo "${var[n]}"
