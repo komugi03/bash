@@ -1,0 +1,64 @@
+#!/bin/bash
+# 
+# 形式: count-line-numbers 任意の個数のファイルパス
+# 
+# 概要: 指定されたファイルパスごとに、「ファイルパス: 行数」の行を出力する。
+# 
+# パラメータ: 
+# 　任意の個数のファイルパス
+# 
+# リターンコード: 
+# 　正常終了時: 0
+# 　ファイル読み込み失敗: 1
+# 
+
+# --- 定数定義 ---
+
+# リターンコード: 正常終了時
+declare -ri RC_SUCCESS=0
+# リターンコード: ファイル読み込み失敗
+declare -ri RC_NOT_EXIST_FILE=1
+
+
+# --- 関数定義 ---
+
+# エラーメッセージを標準エラー出力に出力する。
+# $1: エラーメッセージ
+function error() {
+    local -r message=$1
+    echo "${message}" >&2
+}
+
+# 指定されたファイルパスのファイルが存在しているかどうかを判定する。
+# $1: ファイルパス
+function is_exist() {
+    local file_name=$1
+    [ -e "${file_name}" ]
+}
+
+# 指定されたファイルパスのファイルの行数をカウントする。
+# $1: ファイルパス
+function count_line_numbers() {
+    local file_name=$1
+    < "${file_name}" grep -c ''
+}
+
+
+# --- 主処理 ---
+
+# パラメータとして渡されたファイルパスにファイルが存在しているとき、そのファイルの行数をカウントし、結果を標準出力に出力する。
+# 存在していないときは、エラー文を標準エラー出力に出力して処理を終了する。
+declare file_name_inputed
+declare result_count_line_numbers
+
+for file_name_inputed in "$@"; do
+    if is_exist "${file_name_inputed}"; then
+        result_count_line_numbers="$(count_line_numbers "${file_name_inputed}")"
+    else
+        error "エラー: ファイル $file_name_inputed の処理中にエラーが発生しました。"
+        exit ${RC_NOT_EXIST_FILE}
+    fi
+    echo "${file_name_inputed}": "${result_count_line_numbers}"
+done
+
+exit ${RC_SUCCESS}
