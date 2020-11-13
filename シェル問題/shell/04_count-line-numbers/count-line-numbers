@@ -32,8 +32,8 @@ function error() {
 # パラメータが入力されているかを判定する
 # $1: パラメータの総数
 function enter_parameter_or_not() {
-    local number_parameters=$1
-    if [[ number_parameters -eq 0 ]]; then
+    local number=$1
+    if [[ number -eq 0 ]]; then
         exit
     fi
 }
@@ -60,16 +60,17 @@ function count_line_numbers() {
 # --- 主処理 ---
 
 declare i
+declare -ri number_parameters=$#
 
 for i in $(seq $#)
 do
-    declare -r parameter=$"$i"
-    declare -ri number_parameters=$#
+    declare parameter
+    parameter=$(eval echo '$'"${i}")
 
     enter_parameter_or_not "${number_parameters}"
     declare result_count_line_numbers
     result_count_line_numbers="$(count_line_numbers "${parameter}")"
-    echo "${parameter}: ${result_count_line_numbers}"
+    echo "${parameter}": "${result_count_line_numbers}"
 done
 
 exit ${RC_SUCCESS}

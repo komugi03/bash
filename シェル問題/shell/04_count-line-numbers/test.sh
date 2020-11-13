@@ -92,6 +92,8 @@ echo "引数は$#個"
 
 for i in $(seq $#)
 do
-    declare parameter=$"$i"
+    declare parameter
+    parameter=$(eval echo '$'"${i}")
+    # declare parameter='$'${i}
     echo "${parameter}"
 done
