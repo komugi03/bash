@@ -1,0 +1,2 @@
+./05test.sh
+./problem.txt
