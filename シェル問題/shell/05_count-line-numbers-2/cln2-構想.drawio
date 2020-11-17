@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2020-11-17T02:24:42.881Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" version="13.6.5" etag="MNeol6coKbnDfA_vioIg">
+<mxfile host="65bd71144e" modified="2020-11-17T02:35:22.860Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" version="13.6.5" etag="o9Pl9LSD51_x7BxSRWnK">
     <diagram id="pCjuzLubRoerd79wUXE9" name="Page-1">
         <mxGraphModel dx="1286" dy="455" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -16,7 +16,7 @@
                 <mxCell id="4" value="カウントする" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="210" y="617.51" width="120" height="52.49" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="./count-line-numbers-2&amp;nbsp;foo.txt - bar.txt &amp;lt; data/list.txt" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="5" value="./count-line-numbers-2&amp;nbsp;foo.txt - bar.txt &amp;lt; data/list.txt" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
                     <mxGeometry x="210" width="350" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=19;" edge="1" parent="1" source="6" target="22">
@@ -27,7 +27,7 @@
                         <mxPoint x="480" y="170" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="6" value="-がある &amp;amp;&amp;amp; 標準入力ある&amp;nbsp;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="6" value="-である &amp;amp;&amp;amp; 標準入力ある&amp;nbsp;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="180" y="100" width="190" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=19;" edge="1" parent="1" source="7" target="34">
@@ -36,7 +36,7 @@
                 <mxCell id="39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;" edge="1" parent="1" source="7" target="37">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="②-がない &amp;amp;&amp;amp; 標準入力ある&amp;nbsp;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="7" value="②-でない &amp;amp;&amp;amp; 標準入力ある&amp;nbsp;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="380" y="172.5" width="190" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="8" value="パラメータ: $1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;" vertex="1" parent="1">
@@ -111,10 +111,10 @@
                 <mxCell id="37" value="配列に入れる" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="600" y="300" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="38" value="①-があるけど＜ない&lt;br&gt;②-がないけど＜ある&lt;br&gt;③-も＜もない" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+                <mxCell id="38" value="①-であるけど＜ない&lt;br&gt;②-でないけど＜ある&lt;br&gt;③-でなくて＜がない" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
                     <mxGeometry x="430" y="45" width="160" height="120" as="geometry"/>
                 </mxCell>
-                <mxCell id="41" value="①-があるけど＜ない&lt;br&gt;③-も＜もない" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+                <mxCell id="41" value="①-であるけど＜ない&lt;br&gt;③-でなくて＜がない" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
                     <mxGeometry x="610" y="140" width="160" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="42" value="true" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" vertex="1" parent="1">
