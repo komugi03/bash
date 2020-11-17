@@ -1,20 +1,20 @@
-<mxfile host="65bd71144e" modified="2020-11-17T02:35:22.860Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" version="13.6.5" etag="o9Pl9LSD51_x7BxSRWnK">
+<mxfile host="65bd71144e" modified="2020-11-17T03:04:42.153Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.51.1 Chrome/83.0.4103.122 Electron/9.3.3 Safari/537.36" version="13.6.5" etag="vU3A9EXzdjVW0rPG9FLO">
     <diagram id="pCjuzLubRoerd79wUXE9" name="Page-1">
-        <mxGraphModel dx="1286" dy="455" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="940" dy="455" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="2" value="配列に入れる" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="215" y="310" width="120" height="40" as="geometry"/>
+                    <mxGeometry x="215" y="330" width="120" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="3" value="表示する" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="210" y="730.01" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="207.5" y="860" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;" edge="1" parent="1" source="4" target="3">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="4" value="カウントする" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="210" y="617.51" width="120" height="52.49" as="geometry"/>
+                    <mxGeometry x="207.5" y="760" width="120" height="52.49" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="./count-line-numbers-2&amp;nbsp;foo.txt - bar.txt &amp;lt; data/list.txt" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=15;" vertex="1" parent="1">
                     <mxGeometry x="210" width="350" height="60" as="geometry"/>
@@ -22,34 +22,29 @@
                 <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=19;" edge="1" parent="1" source="6" target="22">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=19;" edge="1" parent="1" source="6">
-                    <mxGeometry relative="1" as="geometry">
-                        <mxPoint x="480" y="170" as="targetPoint"/>
-                    </mxGeometry>
+                <mxCell id="57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=15;" edge="1" parent="1" source="6" target="37">
+                    <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="-である &amp;amp;&amp;amp; 標準入力ある&amp;nbsp;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="180" y="100" width="190" height="80" as="geometry"/>
+                <mxCell id="6" value="-である &amp;amp;&amp;amp; ＜ある&lt;br&gt;[ ! -t 0 ] ...標準入力が端末ではない" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="100" width="210" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="35" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=19;" edge="1" parent="1" source="7" target="34">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;" edge="1" parent="1" source="7" target="37">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="7" value="②-でない &amp;amp;&amp;amp; 標準入力ある&amp;nbsp;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="380" y="172.5" width="190" height="70" as="geometry"/>
+                <mxCell id="7" value="最後までいったけど-がない&lt;br&gt;&amp;amp;&amp;amp;&lt;br&gt;＜がある" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="172.5" y="390" width="190" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="8" value="パラメータ: $1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;" vertex="1" parent="1">
                     <mxGeometry x="570" y="10" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="9" value="引数を1つずつ配列に入れる" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;" vertex="1" parent="1">
-                    <mxGeometry x="-49.3" y="239.31" width="398.6" height="40" as="geometry"/>
+                    <mxGeometry x="-122.42" y="313.67" width="536.25" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="配列の中身を1つずつカウントする" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;" vertex="1" parent="1">
-                    <mxGeometry x="59.38" y="598.14" width="181.25" height="40" as="geometry"/>
+                    <mxGeometry x="55.080000000000005" y="702.51" width="181.25" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="11" value="カウントした結果を&lt;br&gt;1つずつ表示する" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;rotation=90;" vertex="1" parent="1">
-                    <mxGeometry x="57.5" y="790.01" width="195" height="40" as="geometry"/>
+                    <mxGeometry x="48.2" y="900" width="195" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="13" value="主処理" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
                     <mxGeometry x="95" y="15" width="90" height="30" as="geometry"/>
@@ -60,77 +55,122 @@
                 <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=19;" edge="1" parent="1" source="14" target="16">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="ファイルが存在しているか？" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="185" y="520" width="170" height="57.51" as="geometry"/>
+                <mxCell id="14" value="file_name_inputed&lt;br&gt;が存在しているか？" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="685" width="170" height="57.51" as="geometry"/>
                 </mxCell>
                 <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0.172;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=19;" edge="1" parent="1" source="16" target="19">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="16" value="エラー文&lt;br&gt;エラー: ファイル /not/exists.txt の処理中にエラーが発生しました。" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
-                    <mxGeometry x="370" y="617.51" width="200" height="50" as="geometry"/>
+                    <mxGeometry x="570" y="707.51" width="200" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="16" target="16">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="18" value="&lt;font style=&quot;font-size: 19px;&quot;&gt;exit 0&lt;/font&gt;" style="shape=tape;whiteSpace=wrap;html=1;fontSize=19;" vertex="1" parent="1">
-                    <mxGeometry x="207.5" y="970" width="135" height="60" as="geometry"/>
+                    <mxGeometry x="197.5" y="1040" width="135" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="19" value="&lt;font style=&quot;font-size: 19px&quot;&gt;exit 1&lt;br&gt;&lt;/font&gt;" style="shape=tape;whiteSpace=wrap;html=1;fontSize=19;" vertex="1" parent="1">
-                    <mxGeometry x="402.5" y="707.51" width="135" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=19;" edge="1" parent="1" source="22" target="2">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;" edge="1" parent="1" source="22" target="2">
-                    <mxGeometry relative="1" as="geometry"/>
+                    <mxGeometry x="602.5" y="790" width="135" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="22" value="＜のあとのファイルを&lt;br&gt;1行ずつ読み込む" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="205" y="210" width="140" height="60" as="geometry"/>
+                    <mxGeometry x="205" y="195" width="140" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="24" value="true" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" vertex="1" parent="1">
-                    <mxGeometry x="280" y="172.5" width="40" height="30" as="geometry"/>
+                    <mxGeometry x="305" y="165" width="40" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="25" value="false" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" vertex="1" parent="1">
                     <mxGeometry x="376.25" y="100" width="40" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="29" value="true" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" vertex="1" parent="1">
-                    <mxGeometry x="280" y="577.51" width="40" height="30" as="geometry"/>
+                    <mxGeometry x="285" y="740" width="40" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="30" value="false" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" vertex="1" parent="1">
-                    <mxGeometry x="362.5" y="510" width="40" height="30" as="geometry"/>
+                    <mxGeometry x="365" y="630" width="40" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="33" value="配列に入れる" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="415" y="377.19" width="120" height="40" as="geometry"/>
+                    <mxGeometry x="206.25" y="565" width="120" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=19;" edge="1" parent="1" source="34" target="33">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="34" value="＜のあとのファイルを&lt;br&gt;1行ずつ読み込む" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="405" y="280" width="140" height="60" as="geometry"/>
+                    <mxGeometry x="196.25" y="470" width="140" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="37" value="配列に入れる" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="600" y="300" width="120" height="40" as="geometry"/>
+                    <mxGeometry x="440" y="230" width="120" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="38" value="①-であるけど＜ない&lt;br&gt;②-でないけど＜ある&lt;br&gt;③-でなくて＜がない" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-                    <mxGeometry x="430" y="45" width="160" height="120" as="geometry"/>
-                </mxCell>
-                <mxCell id="41" value="①-であるけど＜ない&lt;br&gt;③-でなくて＜がない" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-                    <mxGeometry x="610" y="140" width="160" height="120" as="geometry"/>
+                <mxCell id="38" value="とりあえず考慮しない→（①-であるけど＜ない（-））&lt;br&gt;②-でないけど＜ある（ファイルパス）&lt;br&gt;③-でなくて＜がない（ファイルパス）" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="437.5" y="40" width="312.5" height="190" as="geometry"/>
                 </mxCell>
                 <mxCell id="42" value="true" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;" vertex="1" parent="1">
-                    <mxGeometry x="490" y="242.5" width="40" height="30" as="geometry"/>
+                    <mxGeometry x="305" y="440" width="40" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="46" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: rgb(197 , 134 , 192)&quot;&gt;for&lt;/span&gt;&amp;nbsp;&lt;span style=&quot;color: rgb(156 , 220 , 254)&quot;&gt;file_name_inputed&lt;/span&gt;&amp;nbsp;&lt;span style=&quot;color: rgb(197 , 134 , 192)&quot;&gt;in&lt;/span&gt;&amp;nbsp;&lt;span style=&quot;color: rgb(206 , 145 , 120)&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: rgb(156 , 220 , 254)&quot;&gt;${array[@]}&lt;/span&gt;&lt;span style=&quot;color: rgb(206 , 145 , 120)&quot;&gt;&quot;&lt;/span&gt;;&amp;nbsp;&lt;span style=&quot;color: rgb(197 , 134 , 192)&quot;&gt;do&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="shape=loopLimit;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
-                    <mxGeometry x="185" y="480" width="155" height="30" as="geometry"/>
+                    <mxGeometry x="192.5" y="620" width="152.5" height="50" as="geometry"/>
                 </mxCell>
                 <mxCell id="47" value="done" style="shape=loopLimit;whiteSpace=wrap;html=1;fontSize=12;rotation=-180;" vertex="1" parent="1">
-                    <mxGeometry x="193.59" y="920" width="175" height="40" as="geometry"/>
+                    <mxGeometry x="185" y="970" width="175" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="48" value="&lt;div style=&quot;color: rgb(212 , 212 , 212) ; background-color: rgb(30 , 30 , 30) ; font-family: &amp;#34;consolas&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; font-size: 14px ; line-height: 19px&quot;&gt;&lt;span style=&quot;color: #c586c0&quot;&gt;for&lt;/span&gt;&amp;nbsp;&lt;span style=&quot;color: #9cdcfe&quot;&gt;file_path&lt;/span&gt;&amp;nbsp;&lt;span style=&quot;color: #c586c0&quot;&gt;in&lt;/span&gt;&amp;nbsp;&lt;span style=&quot;color: #ce9178&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #9cdcfe&quot;&gt;$@&lt;/span&gt;&lt;span style=&quot;color: #ce9178&quot;&gt;&quot;&lt;/span&gt;;&amp;nbsp;&lt;span style=&quot;color: #c586c0&quot;&gt;do&lt;/span&gt;&lt;/div&gt;" style="shape=loopLimit;whiteSpace=wrap;html=1;fontSize=12;" vertex="1" parent="1">
                     <mxGeometry x="173.75" y="50" width="202.5" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="51" value="done" style="shape=loopLimit;whiteSpace=wrap;html=1;fontSize=12;rotation=-180;" vertex="1" parent="1">
-                    <mxGeometry x="182.5" y="417.19000000000005" width="175" height="40" as="geometry"/>
+                    <mxGeometry x="185" y="372.5" width="175" height="25" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="エラー文&lt;br&gt;エラー: 入力元を入力してください。" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+                    <mxGeometry x="602.5" y="360" width="160" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="&lt;span style=&quot;font-size: 12px&quot;&gt;①-であるけど＜ない（-）&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="580" y="293.67" width="210" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="foo.txt&lt;br&gt;空行&lt;br&gt;bar.txt" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="10" y="296.33" width="107" height="113.67" as="geometry"/>
+                </mxCell>
+                <mxCell id="66" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=15;" edge="1" parent="1" source="59" target="2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.571;entryY=0.007;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=12;" edge="1" parent="1" source="59" target="70">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="空行か？" style="rhombus;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="270" width="190" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=12;" edge="1" parent="1" source="22" target="59">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="275" y="255" as="sourcePoint"/>
+                        <mxPoint x="276.25" y="293.6700000000001" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="67" value="空行じゃない" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="271.25" y="293.67" width="98.75" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="68" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=15;" edge="1" parent="1" source="59" target="67">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="480" y="340" as="targetPoint"/>
+                        <mxPoint x="370" y="285" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="69" value="空行である" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="263.67" width="98.75" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="70" value="なにもしない" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="340" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;fontSize=12;" edge="1" parent="1" source="72" target="75">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="72" value="空行か？" style="rhombus;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="170" y="526.33" width="190" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="空行じゃない" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="261.25" y="550" width="98.75" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="74" value="空行である" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="376.25" y="510" width="98.75" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="75" value="なにもしない" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="390" y="556.33" width="120" height="40" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
