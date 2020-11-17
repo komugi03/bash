@@ -58,3 +58,12 @@
     [[ ${lines[2]} = './test/data/05/file3: 10' ]]
     [[ ${lines[3]} = './test/data/05/file4 xxx: 20' ]]
 }
+
+@test "標準入力に存在しないファイルを指定したときエラー" {
+run shell/05_count-line-numbers-2/count-line-numbers-2 < ./test/data/05/input2
+
+ 
+
+[[ ${status} -eq 1 ]]
+[[ ${output} =~ ^エラー: ]]
+}
