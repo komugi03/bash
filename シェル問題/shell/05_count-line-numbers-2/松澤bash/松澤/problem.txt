@@ -1,0 +1,56 @@
+[スクリプトファイル名]
+count-line-numbers-2
+
+[パラメータ]
+任意の個数のファイルパス
+
+ファイル名として「-」が指定された場合は、その部分のファイルリストとして標準入力を用いる。
+ファイル名として「-」が指定されなかった場合で、かつ標準入力が存在する場合は、
+ファイルリストの末尾に「-」が指定されたものとみなして処理を行う。
+
+パラメータ、標準入力ともにファイルパスが入力されなかった場合は、何も出力しない。
+
+[標準出力]
+指定されたファイルパスごとに、「ファイルパス: 行数」の行を出力する。
+なお、空ファイルの場合は 0 行としてカウントする。
+
+[標準入力]
+ファイル名のリストを改行区切りで入力できる。
+空行は無視する。
+
+[標準エラー出力]
+ファイルの読み込みに失敗した場合は「エラー:」から始まる文字を出力する。
+
+[リターンコード]
+正常終了時: 0
+ファイル読み込み失敗: 1
+
+[実行例]
+$ ./print-line-numbers-2 /path/to/foo.txt ../bar/baz.txt
+/path/to/foo.txt: 15
+../bar/baz.txt: 7
+
+$ ./print-line-numbers-2 /not/exists.txt
+エラー: ファイル /not/exists.txt の処理中にエラーが発生しました。
+$ echo $?
+1
+
+$ cat data/list.txt
+foo.txt
+bar.txt
+$ ./print-line-numbers-2 foo.txt - bar.txt < data/list.txt
+foo.txt: 5
+foo.txt: 5
+bar.txt: 10
+bar.txt: 10
+$ echo $?
+0
+
+$ cat data/list.txt
+foo.txt
+bar.txt
+$ ./print-line-numbers-2 < data/list.txt
+foo.txt: 5
+bar.txt: 10
+$ echo $?
+0

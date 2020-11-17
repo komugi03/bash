@@ -1,0 +1,103 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+新しいクロスプラットフォームの PowerShell をお試しください https://aka.ms/pscore6   
+
+PS C:\Users\adgjm\OneDrive\ドキュメント\Bash\松澤> bash
+
+adgjm@LAPTOP-EIMQV90F MINGW64 ~/OneDrive/ドキュメント/Bash/松澤
+$ ./test.sh
+test1
+test2
+
+adgjm@LAPTOP-EIMQV90F MINGW64 ~/OneDrive/ドキュメント/Bash/松澤
+$ str=$@ a b c
+bash: a: command not found
+
+adgjm@LAPTOP-EIMQV90F MINGW64 ~/OneDrive/ドキュメント/Bash/松澤
+$ echo $@ a b c
+a b c
+
+adgjm@LAPTOP-EIMQV90F MINGW64 ~/OneDrive/ドキュメント/Bash/松澤
+$ ./2test.sh
+aaa
+aaa
+bbb
+bbb
+
+adgjm@LAPTOP-EIMQV90F MINGW64 ~/OneDrive/ドキュメント/Bash/松澤
+$ ./2test.sh
+./2test.sh: line 5: syntax error near unexpected token `done'
+./2test.sh: line 5: `done'
+
+adgjm@LAPTOP-EIMQV90F MINGW64 ~/OneDrive/ドキュメント/Bash/松澤
+$ ./2test.sh
+aaa
+bbb
+ccc
+
+adgjm@LAPTOP-EIMQV90F MINGW64 ~/OneDrive/ドキュメント/Bash/松澤
+$ cat
+aaa
+aaa
+
+[1]+  Stopped                 cat
+
+adgjm@LAPTOP-EIMQV90F MINGW64 ~/OneDrive/ドキュメント/Bash/松澤
+$ jobs
+[1]+  Stopped                 cat
+
+adgjm@LAPTOP-EIMQV90F MINGW64 ~/OneDrive/ドキュメント/Bash/松澤
+$ ./2test.sh < test.sh
+
+adgjm@LAPTOP-EIMQV90F MINGW64 ~/OneDrive/ドキュメント/Bash/松澤
+$ ./2test.sh < test.sh
+#!/bin/bash
+
+declare -a array=()
+
+array[0]=test1
+array[1]=test2
+
+echo "${array[0]}"
+
+adgjm@LAPTOP-EIMQV90F MINGW64 ~/OneDrive/ドキュメント/Bash/松澤
+$ ./2test.sh < test.sh
+#!/bin/bash
+
+declare -a array=()
+
+# array[0]=test1
+# array[1]=test2
+
+# echo "${array[0]}"
+# echo "${array[1]}"
+
+function count_line(){
+< $1 grep -c ''
+}
+
+# function loading_list(){
+#     リストからファイルを読み込んでくる
+# }
+
+
+for file_path in "$@"; do
+処理 bar.txt →　
+if [[ ${file_path}='-' && ! -t 0 ]]; then
+while read str; do
+
+done <
+fi
+done
+
+(foo.txt foo.txt bar.txt bar.txt)
+
+for file_name_inputed in "${array[@]}"; do
+if is_exist "${file_name_inputed}"; then
+result_count_line_numbers="$(count_line_numbers "${file_name_inputed}")"
+else
+exit ${RC_NOT_EXIST_FILE}
+echo "${file_name_inputed}": "${result_count_line_numbers}"
+
+
