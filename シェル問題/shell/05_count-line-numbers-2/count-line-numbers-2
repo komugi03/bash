@@ -59,7 +59,7 @@ for file_path in "$@"; do
     if [[ ${file_path} = '-' && ! -t 0 ]]; then
         while read -r contents_of_list || [[ -n "${contents_of_list}" ]]; do
             if [[ -n "${contents_of_list}" ]]; then
-                array[${counter}]=${file_path}
+                array[${counter}]=${contents_of_list}
                 counter=$((++counter))
             fi
         done
@@ -78,7 +78,7 @@ done
 if [[ ! -t 0 ]]; then
     while read -r contents_of_list || [[ -n "${contents_of_list}" ]]; do
         if [[ -n "${contents_of_list}" ]]; then
-            array+=( "${file_path}" )
+            array+=( "${contents_of_list}" )
         fi
     done
 fi
